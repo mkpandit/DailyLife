@@ -1,0 +1,30 @@
+{% extends "todolist/base.html" %}
+
+{% block content %}
+    <h1>Add a ToDo</h1>
+    <div class="add-client-form rounded border-secondary">
+        <form method="post" enctype="multipart/form-data" action="{% url 'add_todo' %}">
+
+            {% if form.errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger"><strong>{{ error|escape }}</strong></div>
+                {% endfor %}
+            {% endif %}
+
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">{{ field.label }}</label>
+                <div class="col-10">
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger"><strong>{{ error|escape }}</strong></div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-sm">Add</button>
+        </form>
+    </div>
+
+{% endblock %}

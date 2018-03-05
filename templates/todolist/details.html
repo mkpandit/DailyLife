@@ -1,0 +1,25 @@
+{% extends "todolist/base.html" %}
+
+{% block index_content %}
+
+    <div id="show-content">
+
+        <h1>{{ to_do_details.to_do_title }}</h1>
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <p>{{ to_do_details.to_do_time }}</p>
+            <p>{{ to_do_details.description }}</p>
+            <p class="btn btn-{{ to_do_details.priority_class }}">{{ to_do_details.to_do_priority }}</p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            {% if to_do_details.attachment %}
+                <img src="{{ to_do_details.attachment.url }}" width="150" />
+            {% else %}
+                <img src="/media/no_image.png" width="150" />
+            {% endif %}
+        </div>
+        </div>
+
+    </div>
+
+{% endblock %}

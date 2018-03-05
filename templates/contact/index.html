@@ -1,0 +1,38 @@
+{% extends "contact/base.html" %}
+
+{% block index_content %}
+    <h1>Dashboard</h1>
+
+    <div class="row">
+    {% for con in contact %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                {% if con.attachment %}
+                    <img class="img-rounded" src="{{ con.attachment.url }}" alt="" title="" width="150" />
+                {% else %}
+                    <img src="/media/no_image.png" alt="" title="" width="150" />
+                {% endif %}
+
+                <div class="caption">
+                    <h3><a href="tel:{{ con.phone_number }}"> {{ con.phone_number }}</a></h3>
+                    <p>{{ con.last_name }}, {{ con.first_name }}</p>
+                    {% if con.email_address %}
+                        <p><a href="mailto:{{ con.email_address }}"> {{ con.email_address }}</a></p>
+                    {% endif %}
+                    <p>
+                    {% if con.postal_address %}
+                        {{ con.postal_address }}
+                    {% endif %}
+                    {% if con.country %}
+                        <br />
+                        {{ con.country }}
+                    {% endif %}
+                    </p>
+                    <p><a href="#" class="btn btn-primary btn-xs" role="button">edit</a> <a href="#" class="btn btn-warning btn-xs" role="button">delete</a></p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

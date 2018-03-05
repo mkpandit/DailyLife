@@ -1,0 +1,217 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 3.5rem;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*
+ * Typography
+ */
+
+h1 {
+  padding-bottom: 9px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+footer div.footer-text {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/*
+ * Dashboard
+ */
+
+/* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+
+/* Header */
+header {
+  height: 15px;
+}
+
+nav.fixed-top {
+  padding: 0 15px;
+}
+
+div.header-logout-box{
+  margin-left: 10px;
+}
+
+ul.drop-down-logout {
+  min-width: 7rem;
+}
+
+ul.drop-down-logout li {
+  padding: 0 5px;
+}
+
+div.client-profile {
+  border: 1px solid #f0efff;
+  border-radius: 3px;
+  width: 60%;
+  float: left;
+  padding: 10px;
+}
+
+div.client-plugin {
+  border: 1px solid #f0efff;
+  border-radius: 3px;
+  width: 38%;
+  float: right;
+  padding: 10px;
+  min-height: 285px;
+}
+
+div.dasboard-box-container {
+  border: 1px solid #cfd2d6;
+  border-radius: 3px;
+  margin-left: 1%;
+  width: 98%;
+  max-width: 98%;
+}
+
+div.dasboard-boxes {
+  width: 49%;
+  float: left;
+  margin: 20px auto;
+}
+
+div.number-count {
+  font-size: 72px;
+  font-weight: bold;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #cfd2d6;
+  border-radius: 50%;
+  padding-top: 20px;
+  margin: 15px auto;
+}
+
+.plugin-h4:before {
+  content: "\f1e6";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  z-index: 1;
+  margin-right: 5px;
+}
+
+.client-h4:before {
+  content: "\f0c0";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  z-index: 1;
+  margin-right: 5px;
+}
+
+div.number-count:hover {
+  color: #fff;
+  background-color: #3399ff;
+}
+
+div.not-authorized {
+  margin: 3% auto;
+  text-align: center;
+}
+
+div.not-authorized img {
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+div.list-listings {
+  margin-top: 20px;
+  text-align: left;
+}
+
+div.portal-login-messages {
+  border: 1px solid #f0efff;
+  border-radius: 3px;
+  width: 30%;
+  margin: 1% auto;
+  padding: 15px;
+}
+
+div.portal-login-form {
+  border: 1px solid #f0efff;
+  border-radius: 3px;
+  width: 30%;
+  margin: 1% auto;
+  padding: 15px;
+}
+
+div.add-client-form {
+  border: 1px solid #f0efff;
+  border-radius: 3px;
+  width: 100%;
+  margin: 1% auto;
+  padding: 15px;
+}
+
+div.dasboard-box-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.dasboard-box-container ul li {
+    list-style-type: none;
+    margin: 3px;
+    padding: 3px;
+}
+
+div.dasboard-box-container ul li:hover {
+    background-color: #f3f4f5;
+}

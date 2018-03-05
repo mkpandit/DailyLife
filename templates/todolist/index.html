@@ -1,0 +1,55 @@
+{% extends "todolist/base.html" %}
+{% url 'todo_details' as todo_details %}
+
+{% block index_content %}
+    <h1>Dashboard</h1>
+
+
+        <div class="row">
+            {% for to_list in to_do_list_paged %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+
+                    {% if to_list.attachment %}
+                        <img class="img-rounded" src="{{ to_list.attachment.url }}" alt="{{ to_list.to_do_title }}" title="{{ to_list.attachment.name }}" width="150" />
+                    {% else %}
+                        <img src="/media/no_image.png" alt="{{ to_list.to_do_title }}" title="{{ to_list.attachment.name }}" width="150" />
+                    {% endif %}
+
+                    <div class="caption">
+                        <h3>{{ to_list.to_do_title }}</h3>
+                        <p>{{ to_list.to_do_time }}</p>
+                        <p></p>
+                        <p><a href="{{ to_list.get_absolute_url }}" data-toggle="modal" data-target="#view-todo-details" class="btn btn-info btn-xs view-in-popup" role="button">view</a> <a href="{{ to_list.get_absolute_edit }}" class="btn btn-primary btn-xs" role="button">edit</a> <a href="{{ to_list.get_absolute_delete }}" class="btn btn-warning btn-xs" role="button">delete</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <nav aria-label="to-do-list-pagination">
+            {% if to_do_list_paged.has_other_pages %}
+                <ul class="pagination justify-content-center">
+                {% if to_do_list_paged.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ to_do_list_paged.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                {% endif %}
+                {% for i in to_do_list_paged.paginator.page_range %}
+                    {% if to_do_list_paged.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if to_do_list_paged.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ to_do_list_paged.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                {% endif %}
+                </ul>
+            {% endif %}
+        </nav>
+
+
+{% endblock %}
