@@ -1,19 +1,20 @@
-{% extends "base.html" %}
+{% extends "contact/base.html" %}
 
 {% block index_content %}
 
     <div id="show-content">
 
-        <h1>{{ to_do_details.to_do_title }}</h1>
+        <h1>Details of {{ contact_details.last_name}}</h1>
         <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-8">
-            <p>{{ to_do_details.to_do_time }}</p>
-            <p>{{ to_do_details.description }}</p>
-            <p class="btn btn-{{ to_do_details.priority_class }}">{{ to_do_details.to_do_priority }}</p>
+            <p>{{ contact_details.last_name}}, {{ contact_details.first_name }}</p>
+            <p>{{ contact_details.email_address }}</p>
+            <p>{{ contact_details.phone_number }}</p>
+            <p>{{ contact_details.postal_address }}</p>
         </div>
         <div class="col-xs-6 col-md-4">
-            {% if to_do_details.attachment %}
-                <img src="{{ to_do_details.attachment.url }}" width="150" />
+            {% if contact_details.profile_picture%}
+                <img src="{{ contact_details.profile_picture.url }}" width="150" />
             {% else %}
                 <img src="/media/no_image.png" width="150" />
             {% endif %}

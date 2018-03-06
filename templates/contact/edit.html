@@ -1,0 +1,20 @@
+{% extends "contact/base.html" %}
+
+{% block content %}
+    <h1>Add a ToDo</h1>
+    <div class="add-client-form rounded border-secondary">
+        <form method="post" enctype="multipart/form-data" action="{{ edit_contact }}" >
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">{{ field.label }}</label>
+                <div class="col-10">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+        </form>
+    </div>
+
+{% endblock %}

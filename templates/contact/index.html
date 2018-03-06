@@ -7,8 +7,8 @@
     {% for con in contact %}
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                {% if con.attachment %}
-                    <img class="img-rounded" src="{{ con.attachment.url }}" alt="" title="" width="150" />
+                {% if con.profile_picture %}
+                    <img class="img-rounded" src="{{ con.profile_picture.url }}" alt="" title="" width="150" />
                 {% else %}
                     <img src="/media/no_image.png" alt="" title="" width="150" />
                 {% endif %}
@@ -28,7 +28,7 @@
                         {{ con.country }}
                     {% endif %}
                     </p>
-                    <p><a href="#" class="btn btn-primary btn-xs" role="button">edit</a> <a href="#" class="btn btn-warning btn-xs" role="button">delete</a></p>
+                    <p><a href="{{ con.get_absolute_edit }}" class="btn btn-primary btn-xs" role="button">edit</a> <a href="#" class="btn btn-warning btn-xs" role="button">delete</a></p>
                 </div>
             </div>
         </div>
