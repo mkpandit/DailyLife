@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^contact/', include('contact.urls')),
     url(r'^todolist/', include('todolist.urls')),
     url(r'^admin/', admin.site.urls),
+	url(r'^api/', include('api.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
